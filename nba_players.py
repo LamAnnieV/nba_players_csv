@@ -28,12 +28,12 @@ def nba_player_data():
 
     # Open a CSV file to write the API response
     with open("nba.csv", "w") as file:
-        #Create a writer object variable to write into the csv
+        #Create a writer object variable to write into the CSV
         writer = csv.writer(file)
         #Loop through each page in the API response
         for page in range(total_pages):
             print("Writing to nba.csv")
-            # For each row parse through the json formatted string into Python object 
+            # For each row parse through the JSON formatted string into a Python object 
             for row in response.json()["data"]:
                 # and then write player data to a row in the CSV
                 writer.writerow([row["id"], row["first_name"] + " " + row["last_name"], row["position"], row["team"]["full_name"]])
@@ -44,7 +44,7 @@ while True:
         #Run function
         nba_player_data()
 
-    #Error handling for incorrect api key
+    #Error handling for incorrect API key
     except(KeyError):
         print("Invalid API Key")
         #Set user response to if they want to re-enter their API key
@@ -53,13 +53,13 @@ while True:
         if users_response.lower() == "no":
             print("Exiting...")
             exit()
-        #If user response is "yes", do this:
+        #If the user's response is "yes", do this:
         elif users_response.lower() == "yes":
-            #ask for user api key and set it to a variable
+            #ask for the user API key and set it to a variable
             api_key = input(f"Please enter your API Key for {url}:")
             #run function
             nba_player_data()
-        #until a valid response if given
+        #until a valid response is given
         else:
             #continue looping through the if statement 
             continue 

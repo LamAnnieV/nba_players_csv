@@ -17,8 +17,8 @@ headers = {
 page_parameters = {"page":"0","per_page":"1000"}
 
 
-# Make a GET request to API URL, passing in the parameters and setting it to a response to be use later
-response = requests.get(url, headers=headers, params=page_parameters)                                               #, params=querystring
+# Make a GET request to API URL, passing in the parameters and setting it to a response to be used later
+response = requests.get(url, headers=headers, params=page_parameters)                                     
 
 # Get the total number of pages in the API response
 total_pages = response.json()["meta"]["total_pages"]
